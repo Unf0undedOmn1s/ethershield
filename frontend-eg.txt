@@ -1,10 +1,10 @@
 +--------------------------------------------------+
 | Smart Room Dashboard                            |
 +--------------------------------------------------+
-| [ Room: Library A ]      [ Status: OCCUPIED ✅ ] |
+| [ Room: Amfitheatro A ]      [ Status: OCCUPIED ✅ ] |
 +--------------------------------------------------+
-| Temperature: 22.3°C      Humidity: 48%           |
-| Air Quality: Normal      Motion: Detected 🔴     |
+| Temperature: 22.3°C      Humidity: 67%           |
+| Air Quality: Humid      Motion: Detected 🔴     |
 +--------------------------------------------------+
 
 [ Realtime Graph: Temperature/Humidity ]
@@ -14,5 +14,4 @@
 +-----------------------------+
 | TXID         | Time      | Data           |
 | 0xabc12...   | 13:00     | Temp: 22.3°C    |
-| 0xdef45...   | 13:01     | Motion: True    |
-| ...                                      
+| 0xdef45...   | 13:01     | Motion: True    |                                 
