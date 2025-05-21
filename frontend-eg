@@ -1,0 +1,18 @@
++--------------------------------------------------+
+| Smart Room Dashboard                            |
++--------------------------------------------------+
+| [ Room: Library A ]      [ Status: OCCUPIED ✅ ] |
++--------------------------------------------------+
+| Temperature: 22.3°C      Humidity: 48%           |
+| Air Quality: Normal      Motion: Detected 🔴     |
++--------------------------------------------------+
+
+[ Realtime Graph: Temperature/Humidity ]
+
++-----------------------------+
+| Blockchain Audit Logs       |
++-----------------------------+
+| TXID         | Time      | Data           |
+| 0xabc12...   | 13:00     | Temp: 22.3°C    |
+| 0xdef45...   | 13:01     | Motion: True    |
+| ...                                      
