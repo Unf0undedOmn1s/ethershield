@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Scan Dashboard</title>
+</head>
+<body>
+    <h1>Scan Results</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>SSID</th>
+                <th>BSSID</th>
+                <th>Zone</th>
+                <th>Hash</th>
+            </tr>
+        </thead>
+        <tbody id="scan-table">
+        </tbody>
+    </table>
+    <script>
+        async function loadScans() {
+            const res = await fetch('/scans');
+            const scans = await res.json();
+            const table = document.getElementById('scan-table');
+            table.innerHTML = '';
+            scans.forEach(scan => {
+                const row = `<tr>
+                    <td>${scan.ssid}</td>
+                    <td>${scan.bssid}</td>
+                    <td>${scan.zone}</td>
+                    <td>${scan.hash}</td>
+                </tr>`;
+                table.innerHTML += row;
+            });
+        }
+        loadScans();
+        setInterval(loadScans, 5000); // Refresh every 5 seconds
+    </script>
+</body>
+</html>
