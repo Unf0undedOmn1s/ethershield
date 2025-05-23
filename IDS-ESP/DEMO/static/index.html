@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rogue AP Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Suspicious Access Points</h1>
+    <table id="apTable">
+      <thead>
+        <tr>
+          <th>SSID</th><th>BSSID</th><th>RSSI</th><th>Channel</th><th>Vendor</th><th>Reason</th><th>Timestamp</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script>
+    async function loadData() {
+      const res = await fetch("http://your-server-ip:8000/api/latest");
+      const data = await res.json();
+      const tbody = document.querySelector("#apTable tbody");
+      tbody.innerHTML = "";
+      data.forEach(entry => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${entry.ssid}</td>
+          <td>${entry.bssid}</td>
+          <td>${entry.rssi}</td>
+          <td>${entry.channel}</td>
+          <td>${entry.vendor}</td>
+          <td>${entry.reason}</td>
+          <td>${entry.timestamp}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    setInterval(loadData, 3000);
+    loadData();
+  </script>
+</body>
+</html>
