@@ -31,9 +31,9 @@
 
 # Copyright (c) 2025 Whiteguard 
 # Meet the team of Whiteguard:
-- Grivas Marios Offensive Security Practicioner | Backend/Frontend
-- Gkarsoudis N. Dimitrios IoT & Hardware | IoT/Flutter
-- Kalantzis E. Ektoras Offensive Security Practicioner | Blockchain/Frontend
-- Mpetas Alexandros IoT & Hardware | IoT/Python Programming
+- Grivas Marios **Offensive Security Practicioner** | *Backend/Frontend*
+- Gkarsoudis N. Dimitrios **IoT & Hardware** | *IoT/Flutter*
+- Kalantzis E. Ektoras **Offensive Security Practicioner** | *Blockchain/Fronten*
+- Mpetas Alexandros **IoT & Hardware** | *IoT/Python Programming*
 # This software is the intellectual property of Whiteguard.
 # Unauthorized use or distribution is prohibited.
