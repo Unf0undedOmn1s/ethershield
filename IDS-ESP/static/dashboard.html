@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethershield - IDS Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        .dashboard {
+            padding: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #00b4d8;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #2ecc71;
+            animation: pulse 1.5s infinite;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00b4d8;
+            margin: 0.5rem 0;
+        }
+
+        .live-feed {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .feed-item {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            margin: 0.5rem 0;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            animation: slideIn 0.5s ease;
+        }
+
+        .alert-critical {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .chart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            height: 400px;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .action-btn {
+            padding: 1rem;
+            background: #00b4d8;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .action-btn:hover {
+            background: #0096c7;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">EtherShield by Whiteguard</div>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span>System Active</span>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Threats Blocked</h3>
+                <div class="stat-value">668</div>
+                <span>Last 24 hours</span>
+            </div>
+            <div class="stat-card">
+                <h3>Devices Online</h3>
+                <div class="stat-value">15</div>
+                <span>Protected devices</span>
+            </div>
+            <div class="stat-card">
+                <h3>System Uptime</h3>
+                <div class="stat-value">99.6%</div>
+                <span>Current status</span>
+            </div>
+        </div>
+
+        <div class="live-feed">
+            <h2>Live Threat Feed</h2>
+            <div class="feed-item alert-critical">
+                <span>🚨 Warning! Suspicious Log Detected.</span>
+                <span>Checking database for matching results...</span>
+            </div>
+            <div class="feed-item">
+                <span>🚨 Warning! Suspicious Log Detected.</span>
+                <span>Matching log found!</span>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-card">
+                <h3>Network Activity</h3>
+            </div>
+            <div class="chart-card">
+                <h3>System Health: -</h3>
+                <div class="health-metric">
+                    <h4>CPU Usage: -</h4>
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="health-metric">
+                    <h4>Memory Usage: -</h4>
+                    <div class="progress-bar"></div>
+                </div>
+                <div class="health-metric">
+                    <h4>Storage: -</h4>
+                    <div class="progress-bar"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="action-btn">Emergency Lockdown</button>
+            <button class="action-btn">Silence Alerts</button>
+            <button class="action-btn">Generate Report</button>
+            <button class="action-btn">Add Device</button>
+        </div>
+    </div>
+</body>
+</html>
