@@ -1,9 +1,20 @@
 ## EtherShield by Whiteguard
 
 # Problem
-
+- Phishing campaigns have become more sophisticated, often mimicking real services (e.g., banks, email providers) with high visual and linguistic accuracy.
+- Phishers use rapidly changing domains and IP addresses to evade detection.
+- Attackers customize phishing emails using public or leaked information to target specific individuals or organizations.
+- SMS phishing (smishing) and mobile-friendly spoof pages trick users who can’t inspect URLs easily.
+- Many phishing incidents go unreported or are scattered across platforms.
 
 # Solution
+- Use real-time visual similarity detection, maintain up-to-date threat intelligence feeds to identify cloned pages quickly.
+- Employ live DNS lookup + cache with TTL monitoring.
+- Cross-reference WHOIS data and certificate transparency logs.
+- Use heuristics based on domain age, registrar reputation, and hosting location.
+- Monitor for targeted wording and context using NLP (natural language processing).
+- Enable users to report suspicious messages, creating feedback loops, provide anomaly detection on inbound communication patterns.
+
 
 # Timeline: 8 Months (Can be adjustable)
 # Month 1 - Tasks:
