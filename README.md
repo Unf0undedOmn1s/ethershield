@@ -45,7 +45,7 @@
 - Perform unit testing, integration testing.
 - Validate blacklist lookups and phishing report accuracy.
 
-# Month 6 - Finalization and Deployment:
+# Month 6 - Finalization and Deployment (2 spare months for improvement):
 - Polish UI and detection precision.
 - Deploy backend to cloud (AWS, Firebase).
 - Prepare documentation, README and pitch materials.
