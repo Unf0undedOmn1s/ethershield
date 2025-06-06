@@ -1,39 +1,50 @@
-## Cloud IoT Blockchain Audit | EtherShield by Whiteguard
-
-# History
-- Atlanta Airport Ransomware WiFi Attack (https://www.airport-technology.com/features/five-times-airports-were-involved-in-cyberattacks-and-data-breaches/)
+## EtherShield by Whiteguard
 
 # Problem
-- Intrusion Detection comes in various forms and pass undetected.
-- Business’ WiFi’s are the no.1 priority in terms of attacks.
-- There's no easy way to detect or track these threats in real-time.
+
 
 # Solution
-- Microcontroller acts as the router
-- Identifies suspicious logs based on patterns.
-- Sends an alert
 
-# Why now?
-- Intrusion Detection is becoming more popular.
-- Traditional security systems don’t monitor threats at the physical level in real time.
-- Microcontrollers now make it possible to build a scalable intrusion detection system.
+##  Time-Focused Project Diagram
+# Timeline: 8 Months (Can be adjustable)
+# Month 1 - Tasks:
+- Define threat model and scope phishing detection.
+- Decide on features: DNS Blacklist, Heuristics, Web Scraping, Threat Intelligence.
+- Choose on tech stack (language, framework, database, API)
 
-# Who we aim to protect:
-- Military
-- Hospitals
-- Universities
-- Banks, etc
+## Roles
+- Team Lead (Project Leader): Ensures objectives are clearly defined and timelines set - Gkarsoudis Dimitrios.
+- Security Analyst: Maps phishing attack vectors to detection logic - Grivas Marios, Kalantzis Ektoras.
+- Backend Developer: Prepares software architecture and data flow plans - Gkarsoudis Dimitrios (AWS), Grivas Marios, Mpetas Alexandros.
+- Frontend Developer: Proposes dashboard and user interface layout - Grivas Marios, Kalantzis Ektoras.
 
-# Secret Sauce
-- Cloud Alert System (FastAPI) | Receives alerts in real-time
-- Blockchain Audit & Dashboard | Stores critical events 
-- Suspicion Detection Logic | Scoring system/Cloud comparison
+# Month 2 - Backend Setup:
+- Build FastAPI/Flask server skeleton.
+- Setup MongoDB/PostgreSQL.
+- Design database schema for phishing logs.
+
+# Month 3 - Core Logic Implemetantion:
+- Implement phishing detection (suspicious URLs, known patterns)
+- Integrate DNS Blacklisting.
+
+# Month 4 - Frontend Development: 
+- Build dashboard (React, or other frontend framework).
+- Implement visualization of logs, feedback submission.
+
+# Month 5 - Testing and Feedback:
+- Perform unit testing, integration testing.
+- Validate blacklist lookups and phishing report accuracy.
+
+# Month 6 - Finalization and Deployment:
+- Polish UI and detection precision.
+- Deploy backend to cloud (AWS, Firebase).
+- Prepare documentation, README and pitch materials.
 
 # Copyright (c) 2025 Whiteguard 
 # Meet the team of Whiteguard:
-- Grivas Marios **Offensive Security Practicioner** | *Backend/Frontend*
-- Gkarsoudis N. Dimitrios **IoT & Hardware** | *IoT/Flutter*
-- Kalantzis E. Ektoras **Offensive Security Practicioner** | *Blockchain/Frontend*
-- Mpetas Alexandros **IoT & Hardware** | *IoT/Python Programming*
+- Grivas Marios **Offensive Security Practicioner**
+- Gkarsoudis N. Dimitrios **IoT & Hardware**
+- Kalantzis E. Ektoras **Offensive Security Practicioner**
+- Mpetas Alexandros **IoT & Hardware**
 # This software is the intellectual property of Whiteguard.
 # Unauthorized use or distribution is prohibited.
