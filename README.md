@@ -5,7 +5,6 @@
 
 # Solution
 
-##  Time-Focused Project Diagram
 # Timeline: 8 Months (Can be adjustable)
 # Month 1 - Tasks:
 - Define threat model and scope phishing detection.
