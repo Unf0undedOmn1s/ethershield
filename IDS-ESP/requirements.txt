@@ -1,5 +1,0 @@
-fastapi
-hashlib
-os
-requests
-uvicorn
