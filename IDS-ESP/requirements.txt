@@ -1,4 +1,6 @@
 fastapi
-os
-requests
+scapy.all
+threading
+time
+subprocess
 uvicorn
