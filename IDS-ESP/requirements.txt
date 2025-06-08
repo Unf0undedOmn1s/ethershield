@@ -1,0 +1,4 @@
+fastapi
+os
+requests
+uvicorn
