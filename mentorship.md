@@ -81,7 +81,6 @@ SaaS freemium:
 ### Πόσα χρήματα χρειάζεστε και για ποιους λόγους;
 Ζητάμε αρχική ενίσχυση ~€5.000–10.000 για:
 - Cloud servers + scaling υποδομής
-- Σχεδιασμό του browser extension
 - Νομικά κόστη για GDPR/compliance
 - Δημιουργία dashboard
 
