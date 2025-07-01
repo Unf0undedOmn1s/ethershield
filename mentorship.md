@@ -1,4 +1,4 @@
-# WhiteGuard – Questions/Answers|Mentoring Sessions
+# Whiteguard – Questions/Answers|Mentoring Sessions
 
 ## Business Model & Αγορά
 
