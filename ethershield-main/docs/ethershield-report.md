@@ -10,6 +10,7 @@ _Last updated: 14 July 2025_
 - Created a public landing website with product details and a demo request form
 - Launched Instagram, YouTube, and X pages
 - Published phishing awareness content and interactive quizzes on social media
+- Created online Google Form -> *https://docs.google.com/forms/d/e/1FAIpQLSdTCLXHSaL_LRmX59-HVZN97Ml4gtby_Kog35wV7wUZpQNVWg/viewform?usp=header*
 
 ### Backend & Dashboard Development
 - Implemented FastAPI backend for:
