@@ -57,4 +57,4 @@
 - Kalantzis E. Ektoras **Offensive Security Practicioner**
 - Mpetas Alexandros **IoT & Hardware**
 # This software is the intellectual property of Whiteguard.
-# For more, read EULA in ethershield/EULA.
+# For more, read EULA at ethershield/EULA.
