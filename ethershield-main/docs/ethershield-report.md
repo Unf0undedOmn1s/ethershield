@@ -24,7 +24,7 @@ _Last updated: 14 July 2025_
   - Resource Usage (CPU, RAM, Disk)
 - Display of real-time traffic logs and system status
 
-### 🔹 Phishing Detection
+### Phishing Detection
 - Phishing feature design: User submits a suspicious link
 - Comparing URLs against a large database of phishing patterns
 - Output shows whether the link is malicious or clean
