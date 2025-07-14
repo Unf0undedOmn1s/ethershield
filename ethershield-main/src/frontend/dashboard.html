@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ethershield - IDS Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="header">
+            <div class="logo">EtherShield by Whiteguard</div>
+            <div class="status-indicator">
+                <div class="status-dot"></div>
+                <span id="systemStatus">System Active</span>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Threats Blocked</h3>
+                <div class="stat-value" id="threatsBlocked">0</div>
+                <span>Last 24 hours</span>
+            </div>
+            <div class="stat-card">
+                <h3>Active Connections</h3>
+                <div class="stat-value" id="activeConnections">0</div>
+                <span>Current sessions</span>
+            </div>
+            <div class="stat-card">
+                <h3>Traffic Events</h3>
+                <div class="stat-value" id="trafficEvents">0</div>
+                <span>Total monitored</span>
+            </div>
+            <div class="stat-card">
+                <h3>Data Processed</h3>
+                <div class="stat-value" id="dataProcessed">0 KB</div>
+                <span>Real-time</span>
+            </div>
+        </div>
+
+        <div class="live-feed">
+            <h2>Live Threat Feed</h2>
+            <div id="threatFeed">
+                <!-- Live threat events will appear here -->
+            </div>
+        </div>
+
+        <div class="traffic-log">
+            <h2>Real-Time Traffic Monitor</h2>
+            <div id="trafficLogContainer">
+                <p style="color: #bbb; text-align: center; padding: 2rem;">Start monitoring to see live traffic data...</p>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <div class="chart-card">
+                <h3>Network Activity</h3>
+                <div style="padding: 2rem; text-align: center; color: #bbb;">
+                    <p>Traffic visualization will appear here</p>
+                    <p style="margin-top: 1rem;">Events per minute: <span id="eventsPerMinute">0</span></p>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>System Health</h3>
+                <div class="health-metric">
+                    <h4>CPU Usage: <span id="cpuUsage">0%</span></h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="cpuBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="health-metric">
+                    <h4>Memory Usage: <span id="memoryUsage">0%</span></h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="memBar" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="health-metric">
+                    <h4>Storage: <span id="storageUsage">0%</span></h4>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="storageBar" style="width: 0%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="action-btn control-btn" onclick="startTrafficMonitoring()">Start Monitoring</button>
+            <button class="action-btn control-btn stop" onclick="stopTrafficMonitoring()">Stop Monitoring</button>
+            <button class="action-btn">Emergency Lockdown</button>
+            <button class="action-btn">Generate Report</button>
+            <button class="action-btn">Add Device</button>
+        </div>
+    </div>
+
+    <script>
+        
+let monitoring = true;
+
+async function fetchStats() {
+    try {
+        const res = await fetch('http://localhost:8000/stats');
+        const stats = await res.json();
+        document.getElementById('threatsBlocked').textContent = stats.threats_blocked;
+        document.getElementById('activeConnections').textContent = stats.active_connections;
+        document.getElementById('trafficEvents').textContent = stats.traffic_events;
+        document.getElementById('dataProcessed').textContent = stats.data_processed + " KB";
+        document.getElementById('eventsPerMinute').textContent = stats.events_per_minute;
+        document.getElementById('cpuUsage').textContent = stats.cpu + "%";
+        document.getElementById('memoryUsage').textContent = stats.memory + "%";
+        document.getElementById('storageUsage').textContent = stats.storage + "%";
+        document.getElementById('cpuBar').style.width = stats.cpu + "%";
+        document.getElementById('memBar').style.width = stats.memory + "%";
+        document.getElementById('storageBar').style.width = stats.storage + "%";
+
+        if (stats.blocked_ips.length > 0) {
+            const latestBlockedIP = stats.blocked_ips[stats.blocked_ips.length - 1];
+            document.getElementById('latestBlockedThreat').textContent = "Blocked IP: " + latestBlockedIP;
+        } else {
+            document.getElementById('latestBlockedThreat').textContent = "";
+        }
+    } catch (e) {
+        console.error("Failed to fetch stats:", e);
+    }
+}
+
+async function fetchThreatFeed() {
+    try {
+        const res = await fetch('http://localhost:8000/threats');
+        const feed = await res.json();
+        const feedDiv = document.getElementById('threatFeed');
+        feedDiv.innerHTML = '';
+        feed.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'feed-item alert-' + (item.level || 'info');
+            div.innerHTML = `<span>🚨 ${item.message}</span><span>${item.time}</span>`;
+            feedDiv.appendChild(div);
+        });
+    } catch (e) {
+        console.error("Failed to fetch threat feed:", e);
+    }
+}
+
+async function fetchTrafficLog() {
+    try {
+        const res = await fetch('http://localhost:8000/traffic');
+        const logs = await res.json();
+        const logDiv = document.getElementById('trafficLogContainer');
+        logDiv.innerHTML = '';
+        logs.forEach(item => {
+            const div = document.createElement('div');
+            div.className = 'feed-item';
+            div.innerHTML = `<span>${item.event}</span> <span>${item.time}</span>`;
+            logDiv.appendChild(div);
+        });
+    } catch (e) {
+        console.error("Failed to fetch traffic logs:", e);
+    }
+}
+
+function startTrafficMonitoring() { monitoring = true; }
+function stopTrafficMonitoring() { monitoring = false; }
+
+setInterval(() => {
+    fetchStats();
+    fetchThreatFeed();
+    if (monitoring) fetchTrafficLog();
+}, 2000);
+
+window.onload = () => {
+    fetchStats();
+    fetchThreatFeed();
+    fetchTrafficLog();
+};
+</script>

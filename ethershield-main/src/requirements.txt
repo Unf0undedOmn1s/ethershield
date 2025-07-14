@@ -1,0 +1,6 @@
+fastapi
+scapy.all
+threading
+time
+subprocess
+uvicorn

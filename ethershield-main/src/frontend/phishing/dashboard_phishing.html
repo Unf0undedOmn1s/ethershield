@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Phishing Dashboard</title>
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <div class="dashboard">
+    <h1>Ethershield Phishing Dashboard</h1>
+
+    <div class="live-feed">
+      <h2>Phishing URL Check</h2>
+      <form id="phishingForm">
+        <input type="url" id="urlInput" placeholder="Enter a suspicious URL..." required style="width: 80%; padding: 10px; margin-bottom: 10px;">
+        <button type="submit" class="action-btn">Check URL</button>
+      </form>
+      <div id="phishingResult" style="margin-top: 1rem; font-weight: bold;"></div>
+    </div>
+  </div>
+
+  <script>
+  document.getElementById('phishingForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const url = document.getElementById('urlInput').value;
+    const resultDiv = document.getElementById('phishingResult');
+    resultDiv.textContent = "Checking...";
+    try {
+      const response = await fetch('http://localhost:8000/check-phishing', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ url: url })
+      });
+      if (!response.ok) {
+        resultDiv.textContent = `Error: ${response.status} ${response.statusText}`;
+        return;
+      }
+      const data = await response.json();
+      if (data.result === 'phishing') {
+        resultDiv.textContent = `🚨 This URL is suspicious!`;
+      } else if (data.result === 'invalid') {
+        resultDiv.textContent = `❌ Invalid URL.`;
+      } else {
+        resultDiv.textContent = `✅ This URL appears safe.`;
+      }
+    } catch (err) {
+      resultDiv.textContent = "Network or server error: " + err;
+    }
+  });
+</script>
+</body>
+</html>
