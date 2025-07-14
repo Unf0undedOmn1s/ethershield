@@ -1,4 +1,5 @@
 ## EtherShield by Whiteguard
+*For detailed progress check at ethershield/ethershield-main/docs/ethershield-report.md*
 
 # Problem
 - Phishing campaigns have become more sophisticated, often mimicking real services (e.g., banks, email providers) with high visual and linguistic accuracy.
