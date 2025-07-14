@@ -8,7 +8,7 @@ _Last updated: 14 July 2025_
 ### Branding and Online Presence
 - Designed Ethershield visual identity (logo, brand colors, fonts)
 - Created a public landing website with product details and a demo request form
-- Launched Instagram, GitHub, and LinkedIn pages
+- Launched Instagram, YouTube, and X pages
 - Published phishing awareness content and interactive quizzes on social media
 
 ### Backend & Dashboard Development
