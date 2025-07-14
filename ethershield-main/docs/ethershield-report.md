@@ -33,8 +33,8 @@ _Last updated: 14 July 2025_
 
 ### Documentation & Strategy
 - Created pitch deck presentation based on Blueground/OpenCoffee Athens format - 12/07/2025
-- Defined MVP roadmap in MVP-Framework.md - 2/07/2025
-- Documented assumptions, questions & answers, and mentorship notes - 1/07/2025
+- Defined MVP roadmap in MVP-Framework.md - 02/07/2025
+- Documented assumptions, questions & answers, and mentorship notes - 28/06/2025
 - Added LICENSE (custom EULA) and README - 14/07/2025
 
 ## Testing & Deployment
@@ -46,7 +46,7 @@ _Last updated: 14 July 2025_
 ## Business Development
 - Secured 3rd place in university Ideathon competition
 - Participated in Piraeus Startup Accelerator
-- Conducted mentor sessions (Mentor: Fanis Sklavnitis-Piraeus Bank)
+- Conducted mentor sessions (Mentor: Fanis Sklavnitis-Piraeus Bank | Date: 01/07/2025)
 - Filled out business model, vision, and funding plan
 
 ## Next Steps
